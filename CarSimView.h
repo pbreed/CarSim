@@ -78,6 +78,7 @@ public:
 	afx_msg void OnPathStart();
 	afx_msg void OnPathEnd();
 	afx_msg void OnPathReport();
+	afx_msg void OnPathClear();
 };
 
 #ifndef _DEBUG  // debug version in CarSimView.cpp

@@ -6,6 +6,7 @@
 
 #include "CarSimDoc.h"
 #include "CarSimView.h"
+#include "ReportDlg.h"
 #include "MainFrm.h"
 #include "WorldObjects.h"
 #include "TheSimCar.h"
@@ -39,6 +40,7 @@ BEGIN_MESSAGE_MAP(CCarSimView, CZoomView)
 	ON_COMMAND(ID_PATH_START, &CCarSimView::OnPathStart)
 	ON_COMMAND(ID_PATH_END, &CCarSimView::OnPathEnd)
 	ON_COMMAND(ID_PATH_REPORT, &CCarSimView::OnPathReport)
+	ON_COMMAND(ID_PATH_CLEAR, &CCarSimView::OnPathClear)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -94,12 +96,14 @@ void CCarSimView::OnDraw(CDC* pDC)
 	
 	if (nPathPoints)
 	{
-		pDC->SelectStockObject(BLACK_PEN);
+		CPen thick_pen(PS_SOLID, 3, RGB(0, 255, 0));
+		pDC->SelectObject(thick_pen);
 		pDC->MoveTo(PathPoint[0]);
 		for (int i = 1; i < nPathPoints; i++)
 		{
 			pDC->LineTo(PathPoint[i]);
 		}
+		pDC->SelectStockObject(BLACK_PEN);
 	}
 
 /*    int xo=-pDoc->m_xoff;
@@ -289,8 +293,7 @@ void CCarSimView::MouseAction(CPoint p, bool down)
 			PathPoint[nPathPoints++] = p;
 			if (nPathPoints > 2)
 			{
-				CRect cr(PathPoint[nPathPoints - 2], PathPoint[nPathPoints - 1]);
-				InvalidateRect(cr, false);
+				Invalidate(true);
 			}
 		}
 	
@@ -313,5 +316,16 @@ void CCarSimView::OnPathEnd()
 
 void CCarSimView::OnPathReport()
 {
+	ReportDlg rd(this);
+	rd.SetData(nPathPoints, PathPoint);
+	rd.DoModal();
+
+	// TODO: Add your command handler code here
+}
+
+
+void CCarSimView::OnPathClear()
+{
+	nPathPoints = 0;
 	// TODO: Add your command handler code here
 }

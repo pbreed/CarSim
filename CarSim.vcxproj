@@ -136,6 +136,7 @@
     <ClCompile Include="CarSimView.cpp" />
     <ClCompile Include="lineobject.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="ReportDlg.cpp" />
     <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
@@ -153,6 +154,7 @@
     <ClInclude Include="CarSimDoc.h" />
     <ClInclude Include="CarSimView.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="ReportDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="TheSimCar.h" />

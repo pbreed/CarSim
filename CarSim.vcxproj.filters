@@ -39,6 +39,9 @@
     <ClCompile Include="ZOOMVIEW.CPP">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ReportDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CarSim.rc">
@@ -71,6 +74,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ZOOMVIEW.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
